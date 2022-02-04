@@ -1,4 +1,4 @@
-# Summer Smart
+# Fantastic Four
 Repo for project 1
 
 [![ForTheBadge winter-is-coming](http://ForTheBadge.com/images/badges/winter-is-coming.svg)](http://ForTheBadge.com)
@@ -25,6 +25,8 @@ The application should resemble the image below:
 ## Credits
 
 ![MDN Web Docs](https://img.shields.io/badge/MDN_Web_Docs-black?style=for-the-badge&logo=mdnwebdocs&logoColor=white)
+
+<img src="https://bulma.io/images/made-with-bulma.png" width="100" height="24"/>
 
 ## License
 

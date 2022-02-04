@@ -5,12 +5,51 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="assets/css/styles.css" />
-    <title>Summer Smart</title>
+    <title>Fantastic four</title>
 </head>
 
 <body>
-    <h1>Here we go!</h1>
+    <header>
+        <p class="title is-1">Application Name</p>
+        <p class="subtitle is-3">Enter your current city, and let the weather suggest what to watch</p>
+        <nav>
+            <ul>
+                <li>
+                    <a href="#watch-list">Watch List</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="tile is-parent">
+        <article class="tile is-child notification is-info">
+        
+        <form class="box">
+            <div class="field">
+              <label class="label">Current City:</label>
+              <div class="control is-loading">
+                <input class="input" type="text" placeholder="Ex. Minneapolis">
+              </div>
+            </div>
+
+
+
+            <article class="message is-primary">
+                <div class="message-header">
+                  <p>Suggestions</p>
+                </div>
+                <div class="message-body" id="movie-suggestions">
+                  Use this space to append movie suggestions
+                </div>
+              </article>
+
+            </article>
+    </div>
+
+
+
     <script src="./assets/js/script.js"></script>
 </body>
 
