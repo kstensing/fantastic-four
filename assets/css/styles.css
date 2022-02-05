@@ -1,0 +1,11 @@
+header {
+    text-align: center;
+}
+
+div {
+    text-align: center;
+}
+
+#suggestions {
+    list-style-type: none;
+}

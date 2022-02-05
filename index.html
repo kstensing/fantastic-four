@@ -13,42 +13,76 @@
 <body>
     <header>
         <p class="title is-1">Application Name</p>
-        <p class="subtitle is-3">Enter your current city, and let the weather suggest what to watch</p>
-        <nav>
-            <ul>
-                <li>
-                    <a href="#watch-list">Watch List</a>
-                </li>
-            </ul>
-        </nav>
+        <p class="subtitle is-3">Enter your current city, and pair your movie selection to the weather</p>
     </header>
 
-    <div class="tile is-parent">
-        <article class="tile is-child notification is-info">
-        
-        <form class="box">
-            <div class="field">
-              <label class="label">Current City:</label>
-              <div class="control is-loading">
-                <input class="input" type="text" placeholder="Ex. Minneapolis">
-              </div>
+    <div class="tile is-ancestor">
+        <div class="tile is-vertical is-8">
+            <div class="tile">
+                <div class="tile is-parent is-vertical">
+                    <article class="tile is-child notification is-primary">
+                        <p class="title">Current City</p>
+                        <p class="subtitle">Enter your current city below</p>
+                        <form class="box">
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input" type="text" placeholder="Ex. Minneapolis">
+                                </div>
+                            </div>
+                    </article>
+
+                    <article class="tile is-child notification is-warning">
+                        <p class="title">Weather Results</p>
+                        <p class="subtitle"></p>
+                        <div id="weather-container"></div>
+                    </article>
+                </div>
             </div>
 
+            <div class="tile is-parent">
+                <article class="tile is-child notification is-danger">
+                    <p class="title">Movie Suggestions</p>
+                    <div class="content">
+                        <article class="tile is-child  is-info">
+                            <article class="message">
+  
+                                <div class="message-body" id="movie-suggestions">
+                                    Use this space to append movie suggestions
 
+                                    <ul class="movie-list" id="suggestions">
+                                        <li>Movie One</li>
+                                    </ul>
+                                </div>
+                            </article>
+                        </article>
+                    </div>
+                </article>
+            </div>
+        </div>
 
-            <article class="message is-primary">
-                <div class="message-header">
-                  <p>Suggestions</p>
+        <div class="tile is-parent">
+            <article class="tile is-child notification is-success">
+                <div class="content">
+                    <p class="title">Watch List</p>
+                    <p class="subtitle">With even more content</p>
+                    <div class="content" id="favorites-container">
+                        <!-- Content -->
+                    </div>
                 </div>
-                <div class="message-body" id="movie-suggestions">
-                  Use this space to append movie suggestions
-                </div>
-              </article>
-
             </article>
+        </div>
     </div>
 
+    </div>
 
+    <footer class="footer">
+        <div class="content has-text-centered">
+          <p>
+            <strong>Hope you enjoyed this app 💖</strong> The source code is licensed
+            <a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
+          </p>
+        </div>
+      </footer>
 
     <script src="./assets/js/script.js"></script>
 </body>
