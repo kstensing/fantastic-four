@@ -11,12 +11,12 @@
 </head>
 
 <body>
-    <header class="has-text-centered">
-        <p class="title is-1">Application Name</p>
-        <p class="subtitle is-3">Enter your current city, and pair your movie selection to the weather</p>
+    <header class="has-text-centered block">
+        <p class="title is-1 has-text-white">Forecast Films</p>
+    
     </header>
 
-    <div class="tile is-ancestor">
+    <div class="tile is-ancestor  has-text-centered">
         <div class="tile is-vertical is-8">
             <div class="tile">
                 <div class="tile is-parent is-vertical">
@@ -24,18 +24,18 @@
                         <p class="title">Current City</p>
                         <p class="subtitle">Enter your current city below</p>
                         <form class="is-flex box" id="city-form">
-                            <div class="field container">
+                            <div class="field ">
                                 <div class="is-flex">
-                                    <input class="input" id="city" name="city" type="text" placeholder="Ex. Minneapolis">
+                                    <input class="input" id="city" name="city" type="text"
+                                        placeholder="Ex. Minneapolis">
                                     <div class="buttons mx-3">
                                         <button class="button is-link is-light">Submit</button>
-                                      </div>
-                                </div>
+                                    </div>
                             </div>
                         </form>
-                        
                     </article>
-
+                    </div>
+                <div class="tile is-parent">
                     <article class="tile is-child notification">
                         <p class="title">Weather Results</p>
                         <p class="subtitle" id="weather-city"></p>
@@ -51,7 +51,7 @@
                     <div class="content">
                         <article class="tile is-child  is-info">
                             <article class="message">
-  
+
                                 <div class="message-body" id="movie-suggestions">
                                     Use this space to append movie suggestions
 
@@ -83,14 +83,14 @@
 
     <footer class="footer">
         <div class="content has-text-centered">
-          <p>
-            <strong>Hope you enjoyed this app 💖</strong> The source code is licensed
-            <a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
-          </p>
+            <p>
+                <strong>Hope you enjoyed this app 💖</strong> The source code is licensed
+                <a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
+            </p>
         </div>
-      </footer>
+    </footer>
 
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="./assets/js/script.js"></script>
 </body>
 
