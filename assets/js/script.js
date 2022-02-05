@@ -1,0 +1,58 @@
+var cityFormEl = document.querySelector("#city-form");
+var cityInputEl = document.querySelector("#city");
+var currentContainerEl = document.querySelector("#current-conditions-container");
+var currentCity = document.querySelector("#weather-city");
+var currentDay = moment().format(' (MM/DD/YYYY)');
+
+
+var formCityHandler = function (event) {
+    event.preventDefault();
+    var city = cityInputEl.value.trim();
+
+    //if the city is entered run the getCity function
+    if (city) {
+        getCity(city);
+    } else {
+        alert("PLease enter a valid city *change to modal*");
+    };
+};
+
+// gather current city weather data and pass that data
+var getCity = function (city) {
+    //format the weather api url
+    var requestUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=55b53b07c2e560aae2f3aeb2fb43fe2f";
+
+    // make a request to the url
+    fetch(requestUrl)
+        .then(function (response) {
+            response.json().then(function (data) {
+                displayCity(data, city);
+            });
+        });
+};
+
+var displayCity = function (cityInfo) {
+    currentContainerEl.textContent = "";
+    // display current day and city name
+    
+    currentCity.textContent = cityInfo.name + currentDay;
+
+    // obtain icon, create & display image element to the page
+    var source = "http://openweathermap.org/img/wn/" + cityInfo.weather[0].icon + ".png";
+    var imgEl = document.createElement("img");
+    imgEl.setAttribute("src", source);
+    var conditionEl = document.createElement("span");
+    conditionEl.appendChild(imgEl);
+
+    // obtain temp info from api and add to page
+    var cityWeather = "Temp: " + cityInfo.main.temp + "°F";
+    var tempEl = document.createElement("p");
+    tempEl.textContent = cityWeather;
+    conditionEl.appendChild(tempEl);
+
+    // add weather line items to page
+    currentContainerEl.appendChild(conditionEl);
+}
+
+// submit city button event listener to trigger form submit handler
+cityFormEl.addEventListener("submit", formCityHandler);
