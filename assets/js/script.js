@@ -50,6 +50,7 @@ var getCity = function (city) {
         .then(function (response) {
             response.json().then(function (data) {
                 displayCity(data, city);
+                Categories(data);
             });
         });
 };
@@ -103,5 +104,28 @@ getMovies();
 cityFormEl.addEventListener("submit", formCityHandler);
 
 
-
+//categorize weather types
+var Categories = function (data) {
+    //console.log(data);
+    var icon = data.weather[0].icon;
+    if (icon == "01d" || icon == "01n" || icon == "02d" || icon == "02n") {
+        var weatherCategory = "sunny";
+    }
+    else if (icon == "03d" || icon == "03n" || icon == "04d" || icon == "04n") {
+        var weatherCategory = "cloudy";
+    }
+    else if (icon == "09d" || icon == "09n" || icon == "10d" || icon == "10n") {
+        var weatherCategory = "rainy";
+    }
+    else if (icon == "11d" || icon == "11n") {
+        var weatherCategory = "stormy";
+    }
+    else if (icon == "13d" || icon == "13n") {
+        var weatherCategory = "snowy";
+    }
+    else if (icon == "50d" || icon == "50n") {
+        var weatherCategory = "misty";
+    }
+    console.log(weatherCategory);
+};
 
