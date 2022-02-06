@@ -3,6 +3,7 @@ var cityInputEl = document.querySelector("#city");
 var currentContainerEl = document.querySelector("#current-conditions-container");
 var currentCity = document.querySelector("#weather-city");
 var currentDay = moment().format(' (MM/DD/YYYY)');
+var movieName = document.getElementById("container");
 
 
 var formCityHandler = function (event) {
@@ -53,6 +54,28 @@ var displayCity = function (cityInfo) {
     // add weather line items to page
     currentContainerEl.appendChild(conditionEl);
 }
+
+// get array of movies from API, display movies but its not working quite right
+var getMovies = function (genre) {
+    var genre = "Action";
+    apiURL =
+      "https://imdb-api.com/API/AdvancedSearch/k_65onbqrn/?title_type=feature&genres=" +
+      genre;
+  
+    $.ajax({
+      //$.curl({
+      url: apiURL,
+      method: "GET",
+    }).done(function (response) {
+      console.log(response);
+      for (i = 0; i < 5; i++) {
+        console.log(response.results[i].title);
+        movieName.innerHTML = response.results[i].title;
+      }
+    });
+  };
+
+getMovies();
 
 // submit city button event listener to trigger form submit handler
 cityFormEl.addEventListener("submit", formCityHandler);
