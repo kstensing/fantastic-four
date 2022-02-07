@@ -3,7 +3,7 @@ var cityInputEl = document.querySelector("#city");
 var currentContainerEl = document.querySelector("#current-conditions-container");
 var currentCity = document.querySelector("#weather-city");
 var currentDay = moment().format(' (MM/DD/YYYY)');
-var movieName = document.getElementById("container");
+var movieName = document.getElementById("movie-suggestions");
 
 
 var formCityHandler = function (event) {
@@ -93,7 +93,20 @@ var getMovies = function (genre) {
       console.log(response);
       for (i = 0; i < 5; i++) {
         console.log(response.results[i].title);
-        movieName.innerHTML = response.results[i].title;
+        // I commented out this way of adding it to the page in order to test the movieEl for each movie functionality below
+        //movieName.innerHTML = response.results[i].title;
+        
+        // displays each movie on the screen as a list element ***Need to test checkbox functionality that's why it's commented out
+        var movieEl = document.createElement("li");
+        // var checkbox = document.createElement("input");
+        // checkbox.type = "checkbox";
+        // checkbox.classList = "checkbox";
+        // checkbox.value = 1;
+        // checkbox.name = "Save to Favorites"
+        movieEl.classList = "suggestions";
+        movieEl.textContent = response.results[i].title;
+        // movieEl.appendChild(checkbox);
+        movieName.appendChild(movieEl);
       }
     });
   };

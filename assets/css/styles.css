@@ -1,23 +1,34 @@
-#suggestions {
+:root {
+  --primary-color: #759cc9;
+  --secondary-color: #8fb1cc;
+  --tertiary-color: #adc3d1;
+}
+
+.suggestions {
   list-style-type: none;
 }
 
 body {
-  background-image: url("../images/.jpg");
+  background-image: url("../images/background2.jpg");
   background-size: cover;
-  background-position: center;
+  background-repeat: no-repeat;
+  background-position: 25% 75%;
   background-attachment: fixed;
+  /* background: linear-gradient(0deg, #759cc9, #8fb1cc, #adc3d1, #EEECF1); */
 }
 
-header {
+footer {
+  background-image: url("../images/background2.jpg");
+  background-size: cover;
+  background-position: 25% 75%;
+  background-attachment: fixed;
   position: -webkit-sticky;
   position: sticky;
-  background-image: url("../images/.jpg");
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  top: 0;
   z-index: 9999;
+}
+
+img {
+  background: grey;
 }
 
 /* The Modal (background) */
