@@ -93,9 +93,10 @@ var getMovies = function (genre) {
       console.log(response);
       for (i = 0; i < 5; i++) {
         console.log(response.results[i].title);
+        // I commented out this way of adding it to the page in order to test the movieEl for each movie functionality below
         //movieName.innerHTML = response.results[i].title;
         
-        // displays each movie on the screen as a list element ***Need to test checkbox functionality
+        // displays each movie on the screen as a list element ***Need to test checkbox functionality that's why it's commented out
         var movieEl = document.createElement("li");
         // var checkbox = document.createElement("input");
         // checkbox.type = "checkbox";
