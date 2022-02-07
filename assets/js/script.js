@@ -90,7 +90,7 @@ var displayCity = function (cityInfo) {
 var getMovies = function (genre) {
     var genre = "Action";
     apiURL =
-      "https://imdb-api.com/API/AdvancedSearch/k_65onbqrn/?title_type=feature&genres=" +
+      "https://imdb-api.com/API/AdvancedSearch/k_01ol8p7k/?title_type=feature&genres=" +
       genre;
   
     $.ajax({
