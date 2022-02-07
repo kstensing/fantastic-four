@@ -26,6 +26,11 @@ The application should resemble the image below:
 
 <img src="https://bulma.io/images/made-with-bulma.png" width="100" height="24"/>
 
+Photo 2 by <a href="https://unsplash.com/@elcarito?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">elCarito</a> on <a href="https://unsplash.com/s/photos/cloud?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+
+Photo by <a href="https://unsplash.com/@wirhabenzeit?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Dominik Schröder</a> on <a href="https://unsplash.com/s/photos/cloud?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+    
+
 ## License
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)

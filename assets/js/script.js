@@ -3,7 +3,7 @@ var cityInputEl = document.querySelector("#city");
 var currentContainerEl = document.querySelector("#current-conditions-container");
 var currentCity = document.querySelector("#weather-city");
 var currentDay = moment().format(' (MM/DD/YYYY)');
-var movieName = document.getElementById("container");
+var movieName = document.getElementById("movie-suggestions");
 
 
 var formCityHandler = function (event) {
@@ -94,6 +94,7 @@ var getMovies = function (genre) {
       for (i = 0; i < 5; i++) {
         console.log(response.results[i].title);
         movieName.innerHTML = response.results[i].title;
+
       }
     });
   };
