@@ -93,8 +93,19 @@ var getMovies = function (genre) {
       console.log(response);
       for (i = 0; i < 5; i++) {
         console.log(response.results[i].title);
-        movieName.innerHTML = response.results[i].title;
-
+        //movieName.innerHTML = response.results[i].title;
+        
+        // displays each movie on the screen as a list element ***Need to test checkbox functionality
+        var movieEl = document.createElement("li");
+        // var checkbox = document.createElement("input");
+        // checkbox.type = "checkbox";
+        // checkbox.classList = "checkbox";
+        // checkbox.value = 1;
+        // checkbox.name = "Save to Favorites"
+        movieEl.classList = "suggestions";
+        movieEl.textContent = response.results[i].title;
+        // movieEl.appendChild(checkbox);
+        movieName.appendChild(movieEl);
       }
     });
   };

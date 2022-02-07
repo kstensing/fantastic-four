@@ -4,7 +4,7 @@
   --tertiary-color: #adc3d1;
 }
 
-#suggestions {
+.suggestions {
   list-style-type: none;
 }
 
