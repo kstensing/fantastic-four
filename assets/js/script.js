@@ -13,9 +13,17 @@ var formCityHandler = function (event) {
     //if the city is entered run the getCity function
     if (city) {
         getCity(city);
-    } else {
+    } 
+    if (city === false) {
+        invalidCity();
+    }
+    else {
+        invalidCity();
+    };
+    
+    function invalidCity () {
         //   Get the modal
-            var modal = document.getElementById("myModal");
+        var modal = document.getElementById("myModal");
         
         //   Get the <span> element that closes the modal
             var span = document.getElementsByClassName("close")[0];
@@ -37,7 +45,7 @@ var formCityHandler = function (event) {
             }
             }
             noCity();
-    };
+    }
 };
 
 // gather current city weather data and pass that data
