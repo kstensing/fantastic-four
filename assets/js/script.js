@@ -106,14 +106,14 @@ var getMovies = function (genre) {
         
         // displays each movie on the screen as a list element ***Need to test checkbox functionality that's why it's commented out
         var movieEl = document.createElement("li");
-        // var checkbox = document.createElement("input");
-        // checkbox.type = "checkbox";
-        // checkbox.classList = "checkbox";
-        // checkbox.value = 1;
-        // checkbox.name = "Save to Favorites"
+        var checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.classList = "checkbox mx-3";
+        checkbox.value = 1;
+        checkbox.name = "Save to Favorites"
         movieEl.classList = "suggestions";
         movieEl.textContent = response.results[i].title;
-        // movieEl.appendChild(checkbox);
+        movieEl.appendChild(checkbox);
         movieName.appendChild(movieEl);
       }
     });
