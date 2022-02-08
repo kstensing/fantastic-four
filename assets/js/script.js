@@ -49,8 +49,7 @@ var getCity = function (city) {
     fetch(requestUrl)
         .then(function (response) {
             response.json().then(function (data) {
-                displayCity(data, city);
-                Categories(data);
+                displayCity(data);
             });
         });
 };
@@ -76,11 +75,36 @@ var displayCity = function (cityInfo) {
 
     // add weather line items to page
     currentContainerEl.appendChild(conditionEl);
+
+    var weatherCategory = "";
+    var icon = cityInfo.weather[0].icon;
+    if (icon == "01d" || icon == "01n" || icon == "02d" || icon == "02n") {
+        var weatherCategory = "comedy,adventure,animation";
+    }
+    else if (icon == "03d" || icon == "03n" || icon == "04d" || icon == "04n") {
+        var weatherCategory = "superhero,mystery";
+    }
+    else if (icon == "09d" || icon == "09n" || icon == "10d" || icon == "10n") {
+        var weatherCategory = "drama,romance";
+    }
+    else if (icon == "11d" || icon == "11n") {
+        var weatherCategory = "horror,crime";
+    }
+    else if (icon == "13d" || icon == "13n") {
+        var weatherCategory = "animation,superhero";
+    }
+    else if (icon == "50d" || icon == "50n") {
+        var weatherCategory = "horror,thriller,fantasy,sci-Fi,mystery";
+    } else {
+        var weatherCategory = "family"
+    }
+
+    getMovies(weatherCategory)
 }
 
 // get array of movies from API, display movies but its not working quite right
 var getMovies = function (genre) {
-    var genre = "Action";
+
     apiURL =
       "https://imdb-api.com/API/AdvancedSearch/k_65onbqrn/?title_type=feature&genres=" +
       genre;
@@ -93,52 +117,21 @@ var getMovies = function (genre) {
       console.log(response);
       for (i = 0; i < 5; i++) {
         console.log(response.results[i].title);
-        // I commented out this way of adding it to the page in order to test the movieEl for each movie functionality below
-        //movieName.innerHTML = response.results[i].title;
         
         // displays each movie on the screen as a list element ***Need to test checkbox functionality that's why it's commented out
         var movieEl = document.createElement("li");
-        // var checkbox = document.createElement("input");
-        // checkbox.type = "checkbox";
-        // checkbox.classList = "checkbox";
-        // checkbox.value = 1;
-        // checkbox.name = "Save to Favorites"
+        var checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.classList = "checkbox mx-3";
+        checkbox.value = 1;
+        checkbox.name = "Save to Favorites"
         movieEl.classList = "suggestions";
         movieEl.textContent = response.results[i].title;
-        // movieEl.appendChild(checkbox);
+        movieEl.appendChild(checkbox);
         movieName.appendChild(movieEl);
       }
     });
   };
 
-getMovies();
-
 // submit city button event listener to trigger form submit handler
 cityFormEl.addEventListener("submit", formCityHandler);
-
-
-//categorize weather types
-var Categories = function (data) {
-    //console.log(data);
-    var icon = data.weather[0].icon;
-    if (icon == "01d" || icon == "01n" || icon == "02d" || icon == "02n") {
-        var weatherCategory = "sunny";
-    }
-    else if (icon == "03d" || icon == "03n" || icon == "04d" || icon == "04n") {
-        var weatherCategory = "cloudy";
-    }
-    else if (icon == "09d" || icon == "09n" || icon == "10d" || icon == "10n") {
-        var weatherCategory = "rainy";
-    }
-    else if (icon == "11d" || icon == "11n") {
-        var weatherCategory = "stormy";
-    }
-    else if (icon == "13d" || icon == "13n") {
-        var weatherCategory = "snowy";
-    }
-    else if (icon == "50d" || icon == "50n") {
-        var weatherCategory = "misty";
-    }
-    console.log(weatherCategory);
-};
-
