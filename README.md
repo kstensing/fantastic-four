@@ -1,4 +1,4 @@
-# Fantastic Four
+# Forecast📽️Films
 
 ## Have you ever wondered what to watch? Why not let the weather help you out?!
 ### This Group Project:
@@ -25,7 +25,7 @@ Click this [LINK](https://kstensing.github.io/fantastic-four/) for the landing p
 
 The application should resemble the image below:
 
-<img width="1355" alt="Forecast Films" src="assets/images/ForecastFilms02.07.png">
+<img width="1355" alt="Forecast Films" src="assets/images/ForecastFilms02.09.png">
 
 ## Credits
 
@@ -35,6 +35,8 @@ The application should resemble the image below:
 
 Photo by <a href="https://unsplash.com/@elcarito?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">elCarito</a> on <a href="https://unsplash.com/s/photos/cloud?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
     
+## Contributors:
+Kate Stensing, Caleb Luster, Stephanie Anderson, and Allyssa Angell
 
 ## License
 
