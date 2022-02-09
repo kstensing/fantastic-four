@@ -10,43 +10,9 @@ var movieName = document.getElementById("movie-suggestions");
 var formCityHandler = function (event) {
   event.preventDefault();
   var city = cityInputEl.value.trim();
-
-  //if the city is entered run the getCity function
-  if (city) {
-    getCity(city);
-  }
-  if (city === false) {
-    invalidCity();
-  } else {
-    invalidCity();
-  }
-
-  function invalidCity() {
-    //   Get the modal
-    var modal = document.getElementById("myModal");
-
-    //   Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
-
-    //   When the user clicks on the button, open the modal
-    function noCity() {
-      modal.style.display = "block";
-    }
-
-    //   When the user clicks on <span> (x), close the modal
-    span.onclick = function () {
-      modal.style.display = "none";
-    };
-
-    //   When the user clicks anywhere outside of the modal, close it
-    window.onclick = function (event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
-      }
-    };
-    noCity();
-  }
+  getCity(city);
 };
+
 function displayFavorites() {
   document.querySelector("#favorites-container").innerHTML = "";
   for (
@@ -64,17 +30,38 @@ function displayFavorites() {
 // gather current city weather data and pass that data
 var getCity = function (city) {
   //format the weather api url
-  var requestUrl =
-    "https://api.openweathermap.org/data/2.5/weather?q=" +
-    city +
-    "&units=imperial&appid=55b53b07c2e560aae2f3aeb2fb43fe2f";
-
+  var requestUrl = " https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=55b53b07c2e560aae2f3aeb2fb43fe2f";    function invalidCity () {
+      //   Get the modal
+      var modal = document.getElementById("myModal");        //   Get the <span> element that closes the modal
+          var span = document.getElementsByClassName("close")[0];        //   When the user clicks on the button, open the modal
+          function noCity() {
+          modal.style.display = "block";
+          }        //   When the user clicks on <span> (x), close the modal
+          span.onclick = function() {
+          modal.style.display = "none";
+          }        //   When the user clicks anywhere outside of the modal, close it
+          window.onclick = function(event) {
+          if (event.target == modal) {
+              modal.style.display = "none";
+          }
+          }
+          noCity();
+  }
   // make a request to the url
-  fetch(requestUrl).then(function (response) {
-    response.json().then(function (data) {
-      displayCity(data);
-    });
-  });
+  fetch(requestUrl)
+      .then(function (response) {
+          if (response.ok){
+          response.json().then(function (data) {
+              displayCity(data);
+          });
+      }
+          else {
+              invalidCity();
+          }
+      })
+      .catch(function () {
+          invalidCity();
+      })
 };
 
 var displayCity = function (cityInfo) {
