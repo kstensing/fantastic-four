@@ -130,9 +130,11 @@ var getMovies = function (genre) {
       checkbox.classList = "checkbox mx-3";
       checkbox.value = 1;
       checkbox.name = "Save to Favorites";
-      movieEl.classList = "suggestions";
+      movieEl.classList = "suggestions has-text-justified";
       movieEl.textContent = response.results[i].title;
-      movieEl.appendChild(checkbox);
+      
+      
+      movieEl.prepend(checkbox);
       movieName.appendChild(movieEl);
       checkbox.addEventListener("click", function (event) {
         console.log(event.target.checked);
