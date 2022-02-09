@@ -6,6 +6,11 @@
 
 .suggestions {
   list-style-type: none;
+  margin-left: 43%;
+}
+
+.favorite-item {
+  list-style-type: none;
 }
 
 body {
