@@ -8,6 +8,10 @@
   list-style-type: none;
 }
 
+.favorite-item {
+  list-style-type: none;
+}
+
 body {
   background-image: url("../images/background2.jpg");
   background-size: cover;
