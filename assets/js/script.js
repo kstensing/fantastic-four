@@ -47,7 +47,16 @@ var formCityHandler = function (event) {
             noCity();
     }
 };
-
+function displayFavorites () {
+    document.querySelector("#favorites-container").innerHTML = "";
+    for (let i = 0; i < JSON.parse(localStorage.getItem("favorites")).length; i++) {
+        var favoritesList = JSON.parse(localStorage.getItem("favorites"))[i]
+        let favoriteEl = document.createElement("li");
+        favoriteEl.classList = "favorite-item";
+        favoriteEl.textContent = favoritesList;
+        document.getElementById("favorites-container").appendChild(favoriteEl);
+    }
+}
 // gather current city weather data and pass that data
 var getCity = function (city) {
     //format the weather api url
@@ -127,7 +136,7 @@ var getMovies = function (genre) {
         console.log(response.results[i].title);
         
         // displays each movie on the screen as a list element ***Need to test checkbox functionality that's why it's commented out
-        var movieEl = document.createElement("li");
+        let movieEl = document.createElement("li");
         var checkbox = document.createElement("input");
         checkbox.type = "checkbox";
         checkbox.classList = "checkbox mx-3";
@@ -137,9 +146,17 @@ var getMovies = function (genre) {
         movieEl.textContent = response.results[i].title;
         movieEl.appendChild(checkbox);
         movieName.appendChild(movieEl);
+        checkbox.addEventListener("click", function () {
+            let favoritesArray = localStorage.getItem("favorites") === null ? [] : JSON.parse(localStorage.getItem("favorites"));
+            if (!favoritesArray.includes(movieEl.textContent) ) {
+            favoritesArray.push(movieEl.textContent);
+            localStorage.setItem("favorites", JSON.stringify(favoritesArray));
+            console.log(favoritesArray);
+            }
+            displayFavorites();
+        })
       }
     });
   };
-
 // submit city button event listener to trigger form submit handler
 cityFormEl.addEventListener("submit", formCityHandler);
